@@ -39,7 +39,7 @@ Steps:
 4. Measure voltage: If you have a voltmeter, you can connect it to the free ends of the wires to measure the voltage produced by the soil battery. 
 5. Observe and experiment: Over time, the soil battery should generate a small voltage. You can observe the voltage readings and see how they change under different conditions, such as varying the types of soil, the distance between electrodes, or the types of metal used.
 
-![IMG-20240308-WA0012 ](IMG-20240308-WA0012.jpg)
+<img src="IMG-20240308-WA0012.jpg" alt="IMG-20240308-WA0012" width="33%">
 ![WhatsApp Image 2024-03-08 at 12 59 25_a627a23a](https://github.com/manujaagnihotri/Micro-Challenge-2/assets/147051463/08c3cb4b-224d-42c2-8795-8d2fb7bbf00e)
 
 Connect the soil battery to the current carrier sensor. 
