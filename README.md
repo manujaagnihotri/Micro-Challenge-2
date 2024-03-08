@@ -57,10 +57,8 @@ Steps:
    - Use jumper wires to connect the wires from the soil battery to the breadboard. 
    - One wire should be connected to the positive rail of the breadboard, and the other wire should be connected to the negative rail.
 
-![WhatsApp Image 2024-03-08 at 12 59 25_af2f5d52](https://github.com/manujaagnihotri/Micro-Challenge-2/assets/147051463/84327070-6df2-4056-a36a-9d799f588c51)
+<img src="WhatsApp Image 2024-03-08 at 12 59 25_af2f5d52.jpg" alt="WhatsApp Image" width="33%"> <img src="IMG-20240308-WA0015.jpg" alt="IMG-20240308-WA0015" width="33%">
 
-![IMG-20240308-WA0015](https://github.com/manujaagnihotri/Micro-Challenge-2/assets/147051463/10e92765-2b92-4ba2-b994-f996723f2653)
-51463/34e531c4-fcc2-47d5-9236-96611cb66f87)
 
 4. Connect the Current Sensor Carrier to the Breadboard:
    - Place the current sensor carrier (e.g., ACS712) on the breadboard.
