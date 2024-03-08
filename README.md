@@ -32,6 +32,11 @@ Materials Needed:
 4. Voltmeter (optional, for measuring voltage)
 5. Container or pot to hold the soil
 
+![IMG-20240308-WA0012 ](https://github.com/manujaagnihotri/Micro-Challenge-2/assets/147051463/797c2821-8389-46af-8235-13a9031e9d69)
+![WhatsApp Image 2024-03-08 at 12 59 25_a627a23a](https://github.com/manujaagnihotri/Micro-Challenge-2/assets/147051463/08c3cb4b-224d-42c2-8795-8d2fb7bbf00e)
+
+
+
 Steps:
 1. Prepare the electrodes: Clean the metal electrodes (e.g., zinc and copper) to remove any dirt or oxidation. You can use sandpaper or a wire brush for this purpose.
 2. Insert the electrodes into the soil: Insert the two metal electrodes into the soil, making sure they are at least a few inches apart and do not touch each other. The deeper they are inserted, the better contact they will have with the soil.
