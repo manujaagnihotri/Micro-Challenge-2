@@ -180,7 +180,7 @@ If running the blender python console should should start printing the data sent
 Python code generating curve and spheres every 2 sec depending on current and voltage coming in:
 
 
-    import bpy
+```import bpy
 import serial.tools.list_ports
 
 def find_available_com_port():
@@ -303,7 +303,7 @@ if com_port:
 
     bpy.app.timers.register(read_serial_port)
 else:
-    print("No available COM ports found.")
+    print("No available COM ports found.")```
 
 
 
