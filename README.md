@@ -63,26 +63,26 @@ Steps:
 Code to read soil battery current: code found on internet, lost the site but we will find it again
 
     float V;      // Voltage variable
-float I;      // Current variable
-float Iav;    // Current average variable
-float noise;  // Noise variable
-int n;        // Counter variable
-int R;        // Raw ADC reading variable
-int Rav;      // Raw Average ADC reading variable
+    float I;      // Current variable
+    float Iav;    // Current average variable
+    float noise;  // Noise variable
+    int n;        // Counter variable
+    int R;        // Raw ADC reading variable
+    int Rav;      // Raw Average ADC reading variable
+   
+   const int analogInPin = A0;    // Analog input pin connected to the ACS724 output
+   float voltageReference = 5.0;  // Voltage reference for the Arduino (in volts)
+   //float sensitivity = 0.066;     // Sensitivity of the ACS724 sensor (mV per A)
+   float sensitivity = 66;
+   void setup() {
+     Serial.begin(9600);  // Initialize serial communication
+   }
 
-const int analogInPin = A0;    // Analog input pin connected to the ACS724 output
-float voltageReference = 5.0;  // Voltage reference for the Arduino (in volts)
-//float sensitivity = 0.066;     // Sensitivity of the ACS724 sensor (mV per A)
-float sensitivity = 66;
-void setup() {
-  Serial.begin(9600);  // Initialize serial communication
-}
-
-void loop() {
-  for (n = 0; n < 10; n++) {      // Do 10 times over
-    V = analogRead(analogInPin);  // Read the voltage on the A0 pin
-    R = V;                        // Set R equal to the raw ADC value
-    delay(10);
+ void loop() {
+   for (n = 0; n < 10; n++) {      // Do 10 times over
+     V = analogRead(analogInPin);  // Read the voltage on the A0 pin
+     R = V;                        // Set R equal to the raw ADC value
+     delay(10);
 
     V = (V / 1023.0) * 5000;  // Convert the digital ADC value to millivolts (5V)
     I = V / sensitivity;      // Convert the sensor voltage reading to Amps
@@ -163,18 +163,7 @@ Explanation of code
 
 Take the readings from the current carrier sensor and develop a python code - prompting it such that with the readings provided, the model creates changes and varies as the fluctuation in the current and voltage occurs.
 
-Learnings - 
-- How microorganisms work and function. 
-- How to create a soil battery and tweak it with different variables and feedings to generate fluctuation in current. 
-- What a current sensor carrier is and how we can use it and how it provides different variables.
-- How to connect all these different variables and generate a python code to then generate a blender model.
-- It was very interesting to see how microorganisms work and if presented visually how it looks because we did not know what to expect. 
 
-The Future - 
-- We would like to change some factors in the soil to see how it affects the conductivity - through different variables like temperature, moisture, mediums like algae/moss 
-- We would like to use different mediums to 3D print the model like resin printing to get a cleaner model.
-- To see how we may develop more interactive models generated from microorganism intelligence
-- To develop such batteries but with different elements like sand, water etc.
 
 
 Examples of prompts 
@@ -318,3 +307,17 @@ if com_port:
     bpy.app.timers.register(read_serial_port)
 else:
     print("No available COM ports found.")```
+)
+
+Learnings - 
+- How microorganisms work and function. 
+- How to create a soil battery and tweak it with different variables and feedings to generate fluctuation in current. 
+- What a current sensor carrier is and how we can use it and how it provides different variables.
+- How to connect all these different variables and generate a python code to then generate a blender model.
+- It was very interesting to see how microorganisms work and if presented visually how it looks because we did not know what to expect. 
+
+The Future - 
+- We would like to change some factors in the soil to see how it affects the conductivity - through different variables like temperature, moisture, mediums like algae/moss 
+- We would like to use different mediums to 3D print the model like resin printing to get a cleaner model.
+- To see how we may develop more interactive models generated from microorganism intelligence
+- To develop such batteries but with different elements like sand, water etc.
