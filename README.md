@@ -142,6 +142,8 @@ void loop() {
    - Power on the Metro Express microcontroller.
    - Monitor the current readings from the soil battery using the current sensor carrier. You can use the serial monitor in your programming environment to view the readings.
 
+Model Image 1.png 
+
 
 Take the readings from the current carrier sensor and develop a python code - prompting it such that with the readings provided, the model creates changes and varies as the fluctuation in the microorganisms occurs.
 
