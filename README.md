@@ -3,7 +3,7 @@
 Hello!
 Manuja and Flora are back! AKA FLOJA or MANURA :)
 
-We began the second micro challenge with an idea of using a soil battery. We wanted to be able to use the micro-organisms in the soil to conduct electricity, which harnesses the natural electrochemical reactions occurring within the soil to produce electrical energy.
+We began the second micro challenge with an idea of using a soil battery. We wanted to be able to use the micro-organisms (bacteria) in the soil to conduct electricity, which harnesses the natural electrochemical reactions occurring within the soil to produce electrical energy.
 
 So the idea in simple words - the input is the soil battery, the processor is the intelligence of micro-organisms and artifical intelligence, and the output is a visual 3D printed model created from the fluctuation of current and voltage within the micro-organisms in the soil battery.
 
