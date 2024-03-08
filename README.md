@@ -306,6 +306,29 @@ else:
     print("No available COM ports found.")```
 
 
+Learnings - 
+- How microorganisms work and function. 
+- How to create a soil battery and tweak it with different variables and feedings to generate fluctuation in current. 
+- What a current sensor carrier is and how we can use it and how it provides different variables.
+- How to connect all these different variables and generate a python code to then generate a blender model.
+- It was very interesting to see how microorganisms work and if presented visually how it looks because we did not know what to expect. 
+
+
+
+
+
+
+
+
+
+
+The Future - 
+- We would like to change some factors in the soil to see how it affects the conductivity - through different variables like temperature, moisture, mediums like algae/moss 
+- We would like to use different mediums to 3D print the model like resin printing to get a cleaner model.
+- To see how we may develop more interactive models generated from microorganism intelligence
+- To develop such batteries but with different elements like sand, water etc.
+
+
 
 
 
