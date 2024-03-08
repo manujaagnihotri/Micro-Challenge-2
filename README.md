@@ -145,8 +145,235 @@ void loop() {
 <img src="Model Image 1.png" alt="IMAGE 6" width="33%"> <img src="Model Image 2.png" alt="IMAGE 6" width="33%"> <img src="Model GIF.gif" alt="IMAGE 6" width="33%"> <img src="Model image with code.png" alt="IMAGE 6" width="33%"> 
 
 
+Code to read soil battery current: code found on internet, lost the site but we will find it again
 
-Take the readings from the current carrier sensor and develop a python code - prompting it such that with the readings provided, the model creates changes and varies as the fluctuation in the microorganisms occurs.
+float V;      // Voltage variable
+float I;      // Current variable
+float Iav;    // Current average variable
+float noise;  // Noise variable
+int n;        // Counter variable
+int R;        // Raw ADC reading variable
+int Rav;      // Raw Average ADC reading variable
+
+const int analogInPin = A0;    // Analog input pin connected to the ACS724 output
+float voltageReference = 5.0;  // Voltage reference for the Arduino (in volts)
+//float sensitivity = 0.066;     // Sensitivity of the ACS724 sensor (mV per A)
+float sensitivity = 66;
+void setup() {
+  Serial.begin(9600);  // Initialize serial communication
+}
+
+void loop() {
+  for (n = 0; n < 10; n++) {      // Do 10 times over
+    V = analogRead(analogInPin);  // Read the voltage on the A0 pin
+    R = V;                        // Set R equal to the raw ADC value
+    delay(10);
+
+    V = (V / 1023.0) * 5000;  // Convert the digital ADC value to millivolts (5V)
+    I = V / sensitivity;      // Convert the sensor voltage reading to Amps
+    V = V/1000;
+    I = I;
+    Serial.print("V = ");
+    Serial.print(V);
+    Serial.print(" V\t");  // Print voltage
+    Serial.print("I = ");
+    Serial.print(I);
+    Serial.println(" mA");  // Print current
+
+    Iav = Iav + I;  // Sum up the ten current measurements
+    Rav = Rav + R;  // Sum up the ten digital ADC measurements
+
+    if (n == 9) {      // If at the tenth measurement, take the average
+      Iav = Iav / 10;  // Calculate the average current
+      Rav = Rav / 10;  // Calculate the average digital ADC reading
+
+      // Calculate noise (standard deviation)
+      noise = 0;
+      for (int i = 0; i < 10; i++) {
+        V = analogRead(analogInPin);
+        R = V;
+        delay(10);
+        V = (V / 1023.0) * 5000;
+        I = V / sensitivity;
+        noise += pow(I - Iav, 2);
+      }
+      noise = sqrt(noise / 10);
+
+      Serial.print("Iav = ");
+      Serial.print(Iav);  // Print out the average current value
+      Serial.print("\tNoise = ");
+      Serial.println(noise);  // Print out the noise value
+
+      Iav = 0;  // Reset the Iav value for the next run
+      Rav = 0;  // Reset the Rav value for the next run
+      delay(2000);
+    }
+  }
+}
+
+Explanation of code
+
+4. Connect the Current Sensor Carrier to the Breadboard:
+   - Place the current sensor carrier (e.g., ACS712) on the breadboard.
+   - Connect its power pins (VCC and GND) to the respective power rails on the breadboard using jumper wires.
+   - Connect the output pin of the current sensor carrier to a free row on the breadboard.
+5. Connect the Metro Express Microcontroller:
+   - Connect the Metro Express microcontroller to the breadboard using jumper wires.
+   - Connect the 5V and GND pins of the Metro Express to the respective power rails on the breadboard.
+   - Connect analog input pin (e.g., A0) of the Metro Express to the output pin of the current sensor carrier.
+6. Program the Metro Express:
+   - Write a code for the Metro Express microcontroller that reads the output of the current sensor carrier and performs any desired actions based on the current readings. You may need to install libraries for interfacing with the current sensor carrier.
+   - Upload the code to the Metro Express using the Arduino IDE.
+7. Test the Setup:
+   - Monitor the current readings from the soil battery using the current sensor carrier. You can use the serial monitor in your programming environment to view the readings.
+
+
+Take the readings from the current carrier sensor and develop a python code - prompting it such that with the readings provided, the model creates changes and varies as the fluctuation in the current and voltage occurs.
+
+Examples of prompts 
+
+
+
+Steps to connect arduino to blender console:
+Closer Arduino serial monitor to let the blender port connection come in
+Open Blender
+Open text editor
+Paste code
+Run code
+Check for errors in blender python console
+If running the blender python console should should start printing the data sent from Arduino
+
+
+Python code generating curve and spheres every 2 sec depending on current and voltage coming in:
+
+
+import bpy
+import serial.tools.list_ports
+
+def find_available_com_port():
+    ports = [port.device for port in serial.tools.list_ports.comports()]
+    if ports:
+        return ports[0]  # Return the first available port
+    else:
+        return None  # No available ports
+
+
+def create_speculative_shape(x, y, z, scale, raw_data):
+    min_radius = 0.2  # Minimum radius for visibility
+    radius = max(scale * 0.1, min_radius)  # Ensure the radius is at least 0.2 meters
+    bpy.ops.mesh.primitive_uv_sphere_add(radius=radius, location=(x, y, z), segments=32, ring_count=16)
+    sphere_obj = bpy.context.active_object
+    
+    # Set the name of the sphere as the raw data
+    sphere_obj.name = raw_data
+
+
+def create_speculative_curve(x, y, z, scale, raw_data):
+    bpy.ops.curve.primitive_bezier_curve_add(enter_editmode=False, align='WORLD', location=(x, y, z), scale=(1.0, scale, 1.0))
+    
+    curve_obj = bpy.context.active_object
+    
+    # Use the raw data as the name for the curve
+    curve_obj.name = raw_data
+    
+    # Set the depth property for extrusion
+    curve_obj.data.bevel_depth = 0.05
+    
+    return curve_obj
+
+def parse_data(data):
+    try:
+        voltage_start = data.index("V = ") + len("V = ")
+        current_start = data.index("I = ") + len("I = ")
+        voltage = float(data[voltage_start:voltage_start + 5])
+        current = float(data[current_start:current_start + 6])
+        return voltage, current
+    except ValueError:
+        return None, None
+
+# Declare last_voltage as a global variable
+last_voltage = 0.0
+
+# Declare last_current as a global variable
+last_current = 0.0
+
+def read_serial_port():
+    global x_coordinate
+    global y_coordinate
+    global last_voltage
+    global last_current
+
+
+    '''
+    global x_coordinate_sphere
+    global y_coordinate_sphere
+    global last_current
+    '''
+
+    data = ser.readline().decode().strip()
+    print(f"Raw Data: {data}")
+
+    voltage, current = parse_data(data)
+    
+    print(voltage)
+    print(current)
+
+    if voltage is not None and current is not None:
+        print(f"Voltage: {voltage} V, Current: {current} mA")
+
+        # Calculate scaling factor based on voltage change
+        scaling_factor = 1.0 + (voltage - last_voltage) / 0.01 * 2
+        diff = current - last_current
+        scaling_factor_sphere =  1.0 + (diff) / 0.01 * 1/3 
+
+        #print(diff)
+
+        #print(scaling_factor_sphere)
+
+        scaling_factor_sphere = scaling_factor_sphere/2 + 0.5
+
+        print(scaling_factor_sphere)
+
+        # Use the scaled current as the scale for the sphere
+        sphere_obj = create_speculative_shape(x_coordinate, y_coordinate, 0, scale=scaling_factor_sphere, raw_data=data)
+        # Use the scaled voltage as the scale for the curve
+        curve_obj = create_speculative_curve(x_coordinate, y_coordinate, 0, scale=scaling_factor, raw_data=data)
+
+        # Update the curve's y-axis scale based on voltage change
+        curve_obj.scale.y = scaling_factor
+        #sphere_obj.scale = (scaling_factor_sphere,scaling_factor_sphere,scaling_factor_sphere)
+        # Update last_voltage for the next iteration
+        last_voltage = voltage
+
+        
+        # Update last_current for the next iteration
+        last_current = current
+
+        # Increment y_coordinate by 0.05 for the next curve along the y-axis
+        # Displacement distance of both objects.
+        y_coordinate += 0.2
+
+        # Rotate the curve to face the sky
+        curve_obj.rotation_euler = (0, 0, 0)  # Reset rotation
+        curve_obj.rotation_euler.rotate_axis("X", 1.5708)  # 1.5708 radians is approximately 90 degrees around X-axis
+
+    return 2.0
+
+com_port = find_available_com_port()
+
+if com_port:
+    print(f"Connecting to {com_port}")
+    ser = serial.Serial(com_port, 9600, timeout=1)
+
+    x_coordinate = 0.0
+    y_coordinate = 0.0
+
+    bpy.app.timers.register(read_serial_port)
+else:
+    print("No available COM ports found.")
+
+
+
 
 
 
