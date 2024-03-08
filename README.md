@@ -39,7 +39,7 @@ Steps:
 4. Measure voltage: If you have a voltmeter, you can connect it to the free ends of the wires to measure the voltage produced by the soil battery. 
 5. Observe and experiment: Over time, the soil battery should generate a small voltage. You can observe the voltage readings and see how they change under different conditions, such as varying the types of soil, the distance between electrodes, or the types of metal used.
 
-<img src="WhatsApp Image 2024-03-08 at 12.59.25_af2f5d52.jpg" alt="WhatsApp Image" width="33%"> <img src="WhatsApp Image 2024-03-08 at 12.59.25_a627a23a.jpg" alt="WhatsApp Image" width="33%">
+ <img src="WhatsApp Image 2024-03-08 at 12.59.25_a627a23a.jpg" alt="WhatsApp Image" width="33%">   <img src="IMG-20240308-WA0012.jpg" alt="WhatsApp Image" width="33%">
 
 
 Connect the soil battery to the current carrier sensor. 
@@ -57,7 +57,7 @@ Steps:
    - Use jumper wires to connect the wires from the soil battery to the breadboard. 
    - One wire should be connected to the positive rail of the breadboard, and the other wire should be connected to the negative rail.
 
-<img src="IMAGE 6.jpg" alt="IMAGE 6" width="33%"> <img src="IMG-20240308-WA0015.jpg" alt="IMG-20240308-WA0015" width="33%">
+<img src="IMG-20240308-WA0015.jpg" alt="IMG-20240308-WA0015" width="33%"> <img src="WhatsApp Image 2024-03-08 at 12.59.25_af2f5d52.jpg" alt="WhatsApp Image" width="33%">
 
 
 Code to read soil battery current: code found on internet, lost the site but we will find it again
@@ -142,7 +142,8 @@ void loop() {
    - Power on the Metro Express microcontroller.
    - Monitor the current readings from the soil battery using the current sensor carrier. You can use the serial monitor in your programming environment to view the readings.
 
-Model Image 1.png 
+<img src="Model Image 1.png" alt="IMAGE 6" width="33%"> <img src="Model Image 2.png" alt="IMAGE 6" width="33%"> <img src="Model GIF.gif" alt="IMAGE 6" width="33%"> <img src="Model image with code.png" alt="IMAGE 6" width="33%"> 
+
 
 
 Take the readings from the current carrier sensor and develop a python code - prompting it such that with the readings provided, the model creates changes and varies as the fluctuation in the microorganisms occurs.
