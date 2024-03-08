@@ -29,7 +29,7 @@ Materials Needed:
 1. Two different types of metal electrodes (such as zinc and copper)
 2. Soil (moist soil works best)
 3. Two wires with alligator clips
-4. Voltmeter (optional, for measuring voltage)
+4. Multimeter (optional, for measuring voltage,current)
 5. Container or pot to hold the soil
 
 Steps:
