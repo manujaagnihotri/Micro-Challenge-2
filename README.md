@@ -62,7 +62,7 @@ Steps:
 
 Code to read soil battery current: code found on internet, lost the site but we will find it again
 
-```float V;      // Voltage variable
+    float V;      // Voltage variable
 float I;      // Current variable
 float Iav;    // Current average variable
 float noise;  // Noise variable
