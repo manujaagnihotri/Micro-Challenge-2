@@ -5,7 +5,7 @@ Manuja and Flora are back! AKA FLOJA or MANURA :)
 
 We began the second micro challenge with an idea of using a soil battery. We wanted to be able to use the micro-organisms (bacteria) in the soil to conduct electricity, which harnesses the natural electrochemical reactions occurring within the soil to produce electrical energy.
 
-So the idea in simple words - the input is the soil battery, the processor is the intelligence of micro-organisms and artifical intelligence, and the output is a visual 3D printed model created from the fluctuation of current and voltage within the micro-organisms in the soil battery.
+So the idea in simple words - the input is the soil battery, the processor is the intelligence of bacteria and artifical intelligence, and the output is a visual 3D printed model created from the data fluctuation of current and voltage within the micro-organisms in the soil battery.
 
 Upon experimentation, we found out that there are multiple different variables that affect the conductivity of electricity in a soil battery. The composition of the soil, the moisture content, the temperature, the soil density and compaction and the electrode placement. 
 
@@ -15,11 +15,11 @@ The given objective to follow was to use intelligence as a processor to an input
 
 We connected 16 insulated cups of soil within each other in a series circuit with copper wires and nails, the copper wires were acting as the positive control while the nails were the negative control.
 
-The highest voltage we were able to receive with the soil battery was approximately 12V and it was quite stable. However, with passing time and added fluctuation to the soil conductivity, we reached an unstable voltage of around 5V. We then used a current sensor carrier to add more variables that could change the variables in the x,y,z axis of the model to visually represent how microorganisms ‘communicate’ within each other. 
+The highest voltage we were able to receive with the soil battery was approximately 12V and it was quite stable. However, with passing time and added fluctuation to the soil conductivity, we reached an unstable voltage of around 5V. We then used a current sensor carrier to add more information on the electricity passing through, that could change the variables in the x,y,z axis of the model to visually represent how microorganisms ‘communicate’ within each other. 
 
-We did this step by using chatgpt. We gave chatgpt prompts to generate a python code with the values of the voltage, current and noise. With the given python code, we put the code to blender to see how it was able to visually generate a model through the microorganism communication. 
+We did this step by using chatgpt. We gave chatgpt prompts to generate a python code reading the values of the voltage, current and noise in blender. With the given python code, we put the code to blender to see how it was able to visually generate a model through the bacteria communication. 
 
-The prompts had to be very specific and required a lot of specificity, in order to generate a model that combines the different variables that we were receiving. 
+The prompts had to be very specific and required a lot of specificity, in order to generate a model that combines the different variables that we were receiving and the serial communication between Arduino.
 
 How did we do it?
 
