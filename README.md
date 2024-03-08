@@ -142,8 +142,6 @@ Code to read soil battery current: code found on internet, lost the site but we 
    - Power on the Metro Express microcontroller.
    - Monitor the current readings from the soil battery using the current sensor carrier. You can use the serial monitor in your programming environment to view the readings.
 
-<img src="Model Image 1.png" alt="IMAGE 6" width="33%"> <img src="Model Image 2.png" alt="IMAGE 6" width="33%"> <img src="Model GIF.gif" alt="IMAGE 6" width="33%"> <img src="Model image with code.png" alt="IMAGE 6" width="33%"> 
-
 Explanation of code
 
 4. Connect the Current Sensor Carrier to the Breadboard:
@@ -178,6 +176,9 @@ Paste code
 Run code
 Check for errors in blender python console
 If running the blender python console should should start printing the data sent from Arduino
+
+
+<img src="Model Image 1.png" alt="IMAGE 6" width="33%"> <img src="Model Image 2.png" alt="IMAGE 6" width="33%"> <img src="Model GIF.gif" alt="IMAGE 6" width="33%"> <img src="Model image with code.png" alt="IMAGE 6" width="33%"> 
 
 
 Python code generating curve and spheres every 2 sec depending on current and voltage coming in:
@@ -305,8 +306,8 @@ if com_port:
 
     bpy.app.timers.register(read_serial_port)
 else:
-    print("No available COM ports found.")
-)```
+    print("No available COM ports found.")```
+)
 
 Learnings -  
 - How to create a soil battery and tweak it with different variables and feedings to generate fluctuation in current. 
