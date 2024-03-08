@@ -32,17 +32,15 @@ Materials Needed:
 4. Voltmeter (optional, for measuring voltage)
 5. Container or pot to hold the soil
 
-![IMG-20240308-WA0012 ](https://github.com/manujaagnihotri/Micro-Challenge-2/assets/147051463/797c2821-8389-46af-8235-13a9031e9d69)
-![WhatsApp Image 2024-03-08 at 12 59 25_a627a23a](https://github.com/manujaagnihotri/Micro-Challenge-2/assets/147051463/08c3cb4b-224d-42c2-8795-8d2fb7bbf00e)
-
-
-
 Steps:
 1. Prepare the electrodes: Clean the metal electrodes (e.g., zinc and copper) to remove any dirt or oxidation. You can use sandpaper or a wire brush for this purpose.
 2. Insert the electrodes into the soil: Insert the two metal electrodes into the soil, making sure they are at least a few inches apart and do not touch each other. The deeper they are inserted, the better contact they will have with the soil.
 3. Connect the wires: Attach one end of each wire to each metal electrode using the alligator clips.
 4. Measure voltage: If you have a voltmeter, you can connect it to the free ends of the wires to measure the voltage produced by the soil battery. 
 5. Observe and experiment: Over time, the soil battery should generate a small voltage. You can observe the voltage readings and see how they change under different conditions, such as varying the types of soil, the distance between electrodes, or the types of metal used.
+
+![IMG-20240308-WA0012 ](https://github.com/manujaagnihotri/Micro-Challenge-2/assets/147051463/797c2821-8389-46af-8235-13a9031e9d69)
+![WhatsApp Image 2024-03-08 at 12 59 25_a627a23a](https://github.com/manujaagnihotri/Micro-Challenge-2/assets/147051463/08c3cb4b-224d-42c2-8795-8d2fb7bbf00e)
 
 Connect the soil battery to the current carrier sensor. 
 Materials Needed:
@@ -59,18 +57,25 @@ Steps:
    - Use jumper wires to connect the wires from the soil battery to the breadboard. 
    - One wire should be connected to the positive rail of the breadboard, and the other wire should be connected to the negative rail.
 
-3. Connect the Current Sensor Carrier to the Breadboard:
+![WhatsApp Image 2024-03-08 at 12 59 25_af2f5d52](https://github.com/manujaagnihotri/Micro-Challenge-2/assets/147051463/84327070-6df2-4056-a36a-9d799f588c51)
+
+![WhatsApp Image 2024-03-08 at 12 59 25_af2f5d52](https://github.com/manujaagnihotri/Micro-Challenge-2/assets/1470
+
+![IMG-20240308-WA0015](https://github.com/manujaagnihotri/Micro-Challenge-2/assets/147051463/10e92765-2b92-4ba2-b994-f996723f2653)
+51463/34e531c4-fcc2-47d5-9236-96611cb66f87)
+
+4. Connect the Current Sensor Carrier to the Breadboard:
    - Place the current sensor carrier (e.g., ACS712) on the breadboard.
    - Connect its power pins (VCC and GND) to the respective power rails on the breadboard using jumper wires.
    - Connect the output pin of the current sensor carrier to a free row on the breadboard.
-4. Connect the Metro Express Microcontroller:
+5. Connect the Metro Express Microcontroller:
    - Connect the Metro Express microcontroller to the breadboard using jumper wires.
    - Connect the 5V and GND pins of the Metro Express to the respective power rails on the breadboard.
    - Connect a digital input pin (e.g., pin 13) of the Metro Express to the output pin of the current sensor carrier.
-5. Program the Metro Express:
+6. Program the Metro Express:
    - Write a program for the Metro Express microcontroller that reads the output of the current sensor carrier and performs any desired actions based on the current readings. You may need to install libraries for interfacing with the current sensor carrier.
    - Upload the program to the Metro Express using the Arduino IDE or CircuitPython.
-6. Test the Setup:
+7. Test the Setup:
    - Power on the Metro Express microcontroller.
    - Monitor the current readings from the soil battery using the current sensor carrier. You can use the serial monitor in your programming environment to view the readings.
 
