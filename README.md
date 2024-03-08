@@ -57,7 +57,7 @@ Steps:
    - Use jumper wires to connect the wires from the soil battery to the breadboard. 
    - One wire should be connected to the positive rail of the breadboard, and the other wire should be connected to the negative rail.
 
-<img src="WhatsApp Image 2024-03-08 at 12 59 25_af2f5d52.jpg" alt="WhatsApp Image" width="33%"> <img src="IMG-20240308-WA0015.jpg" alt="IMG-20240308-WA0015" width="33%">
+<img src="IMAGE 6.jpg" alt="IMAGE 6" width="33%"> <img src="IMG-20240308-WA0015.jpg" alt="IMG-20240308-WA0015" width="33%">
 
 
 4. Connect the Current Sensor Carrier to the Breadboard:
