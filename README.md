@@ -60,6 +60,73 @@ Steps:
 <img src="IMAGE 6.jpg" alt="IMAGE 6" width="33%"> <img src="IMG-20240308-WA0015.jpg" alt="IMG-20240308-WA0015" width="33%">
 
 
+Code to read soil battery current: code found on internet, lost the site but we will find it again
+
+float V;      // Voltage variable
+float I;      // Current variable
+float Iav;    // Current average variable
+float noise;  // Noise variable
+int n;        // Counter variable
+int R;        // Raw ADC reading variable
+int Rav;      // Raw Average ADC reading variable
+
+const int analogInPin = A0;    // Analog input pin connected to the ACS724 output
+float voltageReference = 5.0;  // Voltage reference for the Arduino (in volts)
+//float sensitivity = 0.066;     // Sensitivity of the ACS724 sensor (mV per A)
+float sensitivity = 66;
+void setup() {
+  Serial.begin(9600);  // Initialize serial communication
+}
+
+void loop() {
+  for (n = 0; n < 10; n++) {      // Do 10 times over
+    V = analogRead(analogInPin);  // Read the voltage on the A0 pin
+    R = V;                        // Set R equal to the raw ADC value
+    delay(10);
+
+    V = (V / 1023.0) * 5000;  // Convert the digital ADC value to millivolts (5V)
+    I = V / sensitivity;      // Convert the sensor voltage reading to Amps
+    V = V/1000;
+    I = I;
+    Serial.print("V = ");
+    Serial.print(V);
+    Serial.print(" V\t");  // Print voltage
+    Serial.print("I = ");
+    Serial.print(I);
+    Serial.println(" mA");  // Print current
+
+    Iav = Iav + I;  // Sum up the ten current measurements
+    Rav = Rav + R;  // Sum up the ten digital ADC measurements
+
+    if (n == 9) {      // If at the tenth measurement, take the average
+      Iav = Iav / 10;  // Calculate the average current
+      Rav = Rav / 10;  // Calculate the average digital ADC reading
+
+      // Calculate noise (standard deviation)
+      noise = 0;
+      for (int i = 0; i < 10; i++) {
+        V = analogRead(analogInPin);
+        R = V;
+        delay(10);
+        V = (V / 1023.0) * 5000;
+        I = V / sensitivity;
+        noise += pow(I - Iav, 2);
+      }
+      noise = sqrt(noise / 10);
+
+      Serial.print("Iav = ");
+      Serial.print(Iav);  // Print out the average current value
+      Serial.print("\tNoise = ");
+      Serial.println(noise);  // Print out the noise value
+
+      Iav = 0;  // Reset the Iav value for the next run
+      Rav = 0;  // Reset the Rav value for the next run
+      delay(2000);
+    }
+  }
+}
+
+
 4. Connect the Current Sensor Carrier to the Breadboard:
    - Place the current sensor carrier (e.g., ACS712) on the breadboard.
    - Connect its power pins (VCC and GND) to the respective power rails on the breadboard using jumper wires.
